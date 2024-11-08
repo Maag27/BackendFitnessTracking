@@ -1,14 +1,20 @@
-# Utiliza la imagen oficial de .NET SDK 8.0 para construir la aplicación
+# Utiliza la imagen oficial de .NET SDK para construir la aplicación
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copia los archivos del proyecto y restaura las dependencias
-COPY Web/*.csproj ./Web/
-WORKDIR /app/Web
+# Copia los archivos de proyecto y la solución
+COPY ApiSampleFinal.sln ./
+COPY Domain/Domain.csproj ./Domain/
+COPY Infrastructure/Infrastructure.csproj ./Infrastructure/
+COPY Services/Services.csproj ./Services/
+COPY Web/Web.csproj ./Web/
+
+# Restaura las dependencias del proyecto
 RUN dotnet restore
 
 # Copia el resto de los archivos y compila la aplicación
-COPY Web/. .
+COPY . ./
+WORKDIR /app/Web
 RUN dotnet publish -c Release -o out
 
 # Utiliza una imagen runtime de .NET para ejecutar la aplicación
