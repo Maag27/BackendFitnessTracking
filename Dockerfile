@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # Copia los archivos de proyecto y la solución
-COPY ApiSampleFinal.sln ./
+COPY Web/ApiSampleFinal.sln ./Web/
 COPY Domain/Domain/Domain.csproj ./Domain/
 COPY Infrastructure/Infrastructure/Infrastructure.csproj ./Infrastructure/
 COPY Services/Services/Services.csproj ./Services/
