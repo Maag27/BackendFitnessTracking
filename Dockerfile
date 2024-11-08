@@ -6,7 +6,7 @@ WORKDIR /app
 COPY ApiSampleFinal.sln ./
 COPY Domain/Domain.csproj ./Domain/
 COPY Infrastructure/Infrastructure.csproj ./Infrastructure/
-COPY Services/Services.csproj ./Services/
+COPY Services/Services/Services.csproj ./Services/
 COPY Web/ApiSampleFinal.csproj ./Web/
 
 # Restaura las dependencias del proyecto
