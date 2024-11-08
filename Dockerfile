@@ -10,7 +10,8 @@ COPY Services/Services/Services.csproj ./Services/
 COPY Web/ApiSampleFinal.csproj ./Web/
 
 # Restaura las dependencias del proyecto
-RUN dotnet restore ApiSampleFinal.sln
+WORKDIR /app/Web
+RUN dotnet restore
 
 # Copia el resto de los archivos y compila la aplicación
 COPY . ./
