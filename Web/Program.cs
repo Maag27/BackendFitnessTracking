@@ -1,4 +1,3 @@
-
 using ApiSampleFinal.Automapper;
 using AutoMapper;
 using Infrastructure;
@@ -15,11 +14,12 @@ namespace ApiSampleFinal
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            var configutation = builder.Configuration;
-            // Add services to the containe
+            var configuration = builder.Configuration;
+
+            // Add services to the container
             builder.Services.AddServices();
             builder.Services.AddControllers();
-            builder.Services.AddRepositories(configutation);
+            builder.Services.AddRepositories(configuration);
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -29,10 +29,15 @@ namespace ApiSampleFinal
             builder.Services.AddSingleton(mapper);
 
             //configuracion cors
-            builder.Services.AddCors(p => p.AddPolicy("CORS_Policy", builder =>
+            builder.Services.AddCors(options =>
             {
-                CorsPolicyBuilder corsPolicyBuilder = builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
-            }));
+                options.AddPolicy("CORS_Policy", builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200")
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+            });
 
             //adiciona context database
             builder.Services.AddDbContext<AppDbContext>();
@@ -41,11 +46,10 @@ namespace ApiSampleFinal
 
             //configuracion ssl
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) =>
-             {
-                 // local dev, just approve all certs
-                 return app.Environment.IsDevelopment() ? true : errors == SslPolicyErrors.None;
-             };
-
+            {
+                // local dev, just approve all certs
+                return app.Environment.IsDevelopment() ? true : errors == SslPolicyErrors.None;
+            };
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -60,7 +64,6 @@ namespace ApiSampleFinal
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
