@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copia los archivos de proyecto y la solución
+# Copia los archivos de proyecto y la solución al lugar adecuado
 COPY Web/ApiSampleFinal.sln .
 COPY Domain/Domain/Domain.csproj Domain/Domain/
 COPY Infrastructure/Infrastructure/Infrastructure.csproj Infrastructure/Infrastructure/
@@ -10,8 +10,7 @@ COPY Services/Services/Services.csproj Services/Services/
 COPY Web/ApiSampleFinal.csproj Web/
 
 # Restaura las dependencias del proyecto usando el archivo .sln
-WORKDIR /src
-RUN dotnet restore
+RUN dotnet restore ./ApiSampleFinal.sln
 
 # Copia el resto de los archivos y compila la aplicación
 COPY . .
