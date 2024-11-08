@@ -4,8 +4,8 @@ WORKDIR /app
 
 # Copia los archivos de proyecto y la solución
 COPY ApiSampleFinal.sln ./
-COPY Domain/Domain.csproj ./Domain/
-COPY Infrastructure/Infrastructure.csproj ./Infrastructure/
+COPY Domain/Domain/Domain.csproj ./Domain/
+COPY Infrastructure/Infrastructure/Infrastructure.csproj ./Infrastructure/
 COPY Services/Services/Services.csproj ./Services/
 COPY Web/ApiSampleFinal.csproj ./Web/
 
