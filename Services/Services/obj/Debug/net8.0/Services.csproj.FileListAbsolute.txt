@@ -10,9 +10,9 @@ C:\Users\Hiroshi\Downloads\ApiSampleFinal\Services\Services\obj\Debug\net8.0\Ser
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Services\Services\obj\Debug\net8.0\Services.AssemblyInfoInputs.cache
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Services\Services\obj\Debug\net8.0\Services.AssemblyInfo.cs
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Services\Services\obj\Debug\net8.0\Services.csproj.CoreCompileInputs.cache
+C:\Users\Hiroshi\Downloads\ApiSampleFinal\Services\Services\obj\Debug\net8.0\Services.sourcelink.json
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Services\Services\obj\Debug\net8.0\Services.csproj.Up2Date
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Services\Services\obj\Debug\net8.0\Services.dll
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Services\Services\obj\Debug\net8.0\refint\Services.dll
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Services\Services\obj\Debug\net8.0\Services.pdb
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Services\Services\obj\Debug\net8.0\ref\Services.dll
-C:\Users\Hiroshi\Downloads\ApiSampleFinal\Services\Services\obj\Debug\net8.0\Services.sourcelink.json

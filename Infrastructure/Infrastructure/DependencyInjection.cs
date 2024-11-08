@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Infrastructure
 {
     public static class DependencyInjection
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services, IConfiguration configuration)
         {
-
+            services.AddScoped<UserMetricsRepository>();
             var c = configuration.GetConnectionString("DefaultConnection");
             //aca van los repositorios
             services.AddScoped<IMilkRepository, MilkRepository>();

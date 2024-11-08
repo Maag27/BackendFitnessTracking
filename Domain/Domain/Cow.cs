@@ -11,7 +11,7 @@ namespace Domain
     {
         [Key]
         public Guid Id { get; set; }
-        public string Race {  get; set; }
-         public Milk Milk { get; set; }
+        public string? Race {  get; set; }
+         public Milk? Milk { get; set; }
     }
 }

@@ -4798,11 +4798,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\web\\ApiSampleFinal.csproj",
+      "projectUniqueName": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\Web\\ApiSampleFinal.csproj",
       "projectName": "ApiSampleFinal",
-      "projectPath": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\web\\ApiSampleFinal.csproj",
+      "projectPath": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\Web\\ApiSampleFinal.csproj",
       "packagesPath": "C:\\Users\\Hiroshi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\web\\obj\\",
+      "outputPath": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hiroshi\\AppData\\Roaming\\NuGet\\NuGet.Config"

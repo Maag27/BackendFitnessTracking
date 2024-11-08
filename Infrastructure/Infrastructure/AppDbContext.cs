@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Models;
+
 
 namespace Infrastructure
 {
@@ -15,6 +17,8 @@ namespace Infrastructure
         }
         public DbSet<Milk> Milks { get; set; }
         public DbSet<Cow> Cows { get; set; }
+        public DbSet<UserMetrics> UserMetrics { get; set; }
+
     }
 
 }
