@@ -13,9 +13,9 @@ COPY Web/ApiSampleFinal.csproj ./Web/
 WORKDIR /src/Web
 RUN dotnet restore
 
-# Copia el resto de los archivos y compila la aplicación
-COPY . .
-RUN dotnet clean
+# Copia el resto de los archivos y elimina los directorios 'obj' y 'bin' antes de compilar
+COPY . ./
+RUN find . -name obj -o -name bin | xargs rm -rf
 RUN dotnet publish -c Release -o out
 
 # Utiliza una imagen runtime de .NET para ejecutar la aplicación
