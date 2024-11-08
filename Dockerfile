@@ -7,7 +7,7 @@ COPY ApiSampleFinal.sln ./
 COPY Domain/Domain.csproj ./Domain/
 COPY Infrastructure/Infrastructure.csproj ./Infrastructure/
 COPY Services/Services.csproj ./Services/
-COPY Web/Web.csproj ./Web/
+COPY Web/ApiSampleFinal.csproj ./Web/
 
 # Restaura las dependencias del proyecto
 RUN dotnet restore
