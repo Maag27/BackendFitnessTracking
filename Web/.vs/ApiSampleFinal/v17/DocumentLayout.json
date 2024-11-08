@@ -1,0 +1,290 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Web\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9CADA793-F270-4039-BB23-09D4B4DC137A}|ApiSampleFinal.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\web\\automapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CADA793-F270-4039-BB23-09D4B4DC137A}|ApiSampleFinal.csproj|solutionrelative:automapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2197E95-DE1F-4345-8CD8-83C11C29009E}|..\\Domain\\Domain\\Domain.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\domain\\domain\\cow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FC50B32-1F74-45DE-A941-B0197428E5D4}|..\\Infrastructure\\Infrastructure\\Infrastructure.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\infrastructure\\infrastructure\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2197E95-DE1F-4345-8CD8-83C11C29009E}|..\\Domain\\Domain\\Domain.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\domain\\domain\\milk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CADA793-F270-4039-BB23-09D4B4DC137A}|ApiSampleFinal.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CADA793-F270-4039-BB23-09D4B4DC137A}|ApiSampleFinal.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FC50B32-1F74-45DE-A941-B0197428E5D4}|..\\Infrastructure\\Infrastructure\\Infrastructure.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\infrastructure\\infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CADA793-F270-4039-BB23-09D4B4DC137A}|ApiSampleFinal.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\web\\controllers\\milksalescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CADA793-F270-4039-BB23-09D4B4DC137A}|ApiSampleFinal.csproj|solutionrelative:controllers\\milksalescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FC50B32-1F74-45DE-A941-B0197428E5D4}|..\\Infrastructure\\Infrastructure\\Infrastructure.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\infrastructure\\infrastructure\\repositories\\milkrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FC50B32-1F74-45DE-A941-B0197428E5D4}|..\\Infrastructure\\Infrastructure\\Infrastructure.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\infrastructure\\infrastructure\\repositories\\imilkrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBF83616-5203-4809-9DC9-6E459F879376}|..\\Services\\Services\\Services.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\services\\services\\milkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBF83616-5203-4809-9DC9-6E459F879376}|..\\Services\\Services\\Services.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\services\\services\\imilkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FC50B32-1F74-45DE-A941-B0197428E5D4}|..\\Infrastructure\\Infrastructure\\Infrastructure.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\infrastructure\\infrastructure\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CADA793-F270-4039-BB23-09D4B4DC137A}|ApiSampleFinal.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9CADA793-F270-4039-BB23-09D4B4DC137A}|ApiSampleFinal.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBF83616-5203-4809-9DC9-6E459F879376}|..\\Services\\Services\\Services.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\services\\services\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CADA793-F270-4039-BB23-09D4B4DC137A}|ApiSampleFinal.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\web\\apisamplefinal.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9CADA793-F270-4039-BB23-09D4B4DC137A}|ApiSampleFinal.csproj|solutionrelative:apisamplefinal.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FC50B32-1F74-45DE-A941-B0197428E5D4}|..\\Infrastructure\\Infrastructure\\Infrastructure.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\infrastructure\\infrastructure\\infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FC50B32-1F74-45DE-A941-B0197428E5D4}|..\\Infrastructure\\Infrastructure\\Infrastructure.csproj|c:\\users\\lenovo\\source\\repos\\apisamplefinal\\infrastructure\\infrastructure\\migrations\\20241001015814_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Cow.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Domain\\Domain\\Cow.cs",
+              "RelativeDocumentMoniker": "..\\Domain\\Domain\\Cow.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Domain\\Domain\\Cow.cs",
+              "RelativeToolTip": "..\\Domain\\Domain\\Cow.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAAAsAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T02:00:13.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Web\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Web\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAvwA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T21:45:45.253Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Infrastructure\\Infrastructure\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\Infrastructure\\DependencyInjection.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Infrastructure\\Infrastructure\\DependencyInjection.cs",
+              "RelativeToolTip": "..\\Infrastructure\\Infrastructure\\DependencyInjection.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAABMAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T22:01:23.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Infrastructure\\Infrastructure\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\Infrastructure\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Infrastructure\\Infrastructure\\AppDbContext.cs",
+              "RelativeToolTip": "..\\Infrastructure\\Infrastructure\\AppDbContext.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T00:27:25.41Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MilkSalesController.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Web\\Controllers\\MilkSalesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MilkSalesController.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Web\\Controllers\\MilkSalesController.cs",
+              "RelativeToolTip": "Controllers\\MilkSalesController.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAEwCwAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T21:47:09.251Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Web\\Automapper\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "Automapper\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Web\\Automapper\\MappingProfile.cs",
+              "RelativeToolTip": "Automapper\\MappingProfile.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAywAkAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T21:42:51.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "20241001015814_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Infrastructure\\Infrastructure\\Migrations\\20241001015814_InitialCreate.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\Infrastructure\\Migrations\\20241001015814_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Infrastructure\\Infrastructure\\Migrations\\20241001015814_InitialCreate.cs",
+              "RelativeToolTip": "..\\Infrastructure\\Infrastructure\\Migrations\\20241001015814_InitialCreate.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAAB0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T01:58:15.108Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Milk.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Domain\\Domain\\Milk.cs",
+              "RelativeDocumentMoniker": "..\\Domain\\Domain\\Milk.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Domain\\Domain\\Milk.cs",
+              "RelativeToolTip": "..\\Domain\\Domain\\Milk.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAAAsAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T00:24:14.26Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MilkRepository.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Infrastructure\\Infrastructure\\Repositories\\MilkRepository.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\Infrastructure\\Repositories\\MilkRepository.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Infrastructure\\Infrastructure\\Repositories\\MilkRepository.cs",
+              "RelativeToolTip": "..\\Infrastructure\\Infrastructure\\Repositories\\MilkRepository.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAgwBsAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T00:08:34.261Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IMilkRepository.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Infrastructure\\Infrastructure\\Repositories\\IMilkRepository.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\Infrastructure\\Repositories\\IMilkRepository.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Infrastructure\\Infrastructure\\Repositories\\IMilkRepository.cs",
+              "RelativeToolTip": "..\\Infrastructure\\Infrastructure\\Repositories\\IMilkRepository.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAEwAsAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T00:07:56.838Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MilkService.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Services\\Services\\MilkService.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Services\\MilkService.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Services\\Services\\MilkService.cs",
+              "RelativeToolTip": "..\\Services\\Services\\MilkService.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAABMAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T21:59:46.67Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IMilkService.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Services\\Services\\IMilkService.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Services\\IMilkService.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Services\\Services\\IMilkService.cs",
+              "RelativeToolTip": "..\\Services\\Services\\IMilkService.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAWwAwAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T01:41:32.701Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BaseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Infrastructure\\Infrastructure\\BaseRepository.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\Infrastructure\\BaseRepository.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Infrastructure\\Infrastructure\\BaseRepository.cs",
+              "RelativeToolTip": "..\\Infrastructure\\Infrastructure\\BaseRepository.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAwwBcAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T01:16:32.235Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Web\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Web\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAB8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-01T00:47:23.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Infrastructure.csproj",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Infrastructure\\Infrastructure\\Infrastructure.csproj",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\Infrastructure\\Infrastructure.csproj",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Infrastructure\\Infrastructure\\Infrastructure.csproj",
+              "RelativeToolTip": "..\\Infrastructure\\Infrastructure\\Infrastructure.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-30T22:01:04.763Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Dependencyinjection.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Services\\Services\\Dependencyinjection.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Services\\Dependencyinjection.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Services\\Services\\Dependencyinjection.cs",
+              "RelativeToolTip": "..\\Services\\Services\\Dependencyinjection.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwgAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T22:00:22.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ApiSampleFinal.csproj",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Web\\ApiSampleFinal.csproj",
+              "RelativeDocumentMoniker": "ApiSampleFinal.csproj",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\ApiSampleFinal\\Web\\ApiSampleFinal.csproj",
+              "RelativeToolTip": "ApiSampleFinal.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-30T21:42:18.68Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
