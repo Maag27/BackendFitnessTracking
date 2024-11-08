@@ -3,18 +3,18 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copia los archivos de proyecto y la solución al lugar adecuado
-COPY Web/ApiSampleFinal.sln .
-COPY Domain/Domain/Domain.csproj Domain/Domain/
-COPY Infrastructure/Infrastructure/Infrastructure.csproj Infrastructure/Infrastructure/
-COPY Services/Services/Services.csproj Services/Services/
-COPY Web/ApiSampleFinal.csproj Web/
+COPY Web/ApiSampleFinal.sln ./Web/
+COPY Domain/Domain/Domain.csproj ./Domain/Domain/
+COPY Infrastructure/Infrastructure/Infrastructure.csproj ./Infrastructure/Infrastructure/
+COPY Services/Services/Services.csproj ./Services/Services/
+COPY Web/ApiSampleFinal.csproj ./Web/
 
 # Restaura las dependencias del proyecto usando el archivo .sln
-RUN dotnet restore ./ApiSampleFinal.sln
+WORKDIR /src/Web
+RUN dotnet restore
 
 # Copia el resto de los archivos y compila la aplicación
 COPY . .
-WORKDIR /src/Web
 RUN dotnet clean
 RUN dotnet publish -c Release -o out
 
