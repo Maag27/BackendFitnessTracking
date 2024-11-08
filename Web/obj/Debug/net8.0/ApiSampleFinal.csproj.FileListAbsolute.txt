@@ -174,3 +174,4 @@ C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\obj\Debug\net8.0\refint\ApiSampleF
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\obj\Debug\net8.0\ApiSampleFinal.pdb
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\obj\Debug\net8.0\ApiSampleFinal.genruntimeconfig.cache
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\obj\Debug\net8.0\ref\ApiSampleFinal.dll
+C:\Users\Hiroshi\Downloads\ApiSampleFinal\web\obj\Debug\net8.0\ApiSampleFinal.sourcelink.json

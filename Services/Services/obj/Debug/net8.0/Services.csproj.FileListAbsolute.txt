@@ -15,3 +15,4 @@ C:\Users\Hiroshi\Downloads\ApiSampleFinal\Services\Services\obj\Debug\net8.0\Ser
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Services\Services\obj\Debug\net8.0\refint\Services.dll
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Services\Services\obj\Debug\net8.0\Services.pdb
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Services\Services\obj\Debug\net8.0\ref\Services.dll
+C:\Users\Hiroshi\Downloads\ApiSampleFinal\Services\Services\obj\Debug\net8.0\Services.sourcelink.json
