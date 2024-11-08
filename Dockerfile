@@ -3,14 +3,14 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # Copia los archivos de proyecto y la solución
-COPY Web/ApiSampleFinal.sln ./Web/
+COPY ApiSampleFinal.sln ./
 COPY Domain/Domain/Domain.csproj ./Domain/
 COPY Infrastructure/Infrastructure/Infrastructure.csproj ./Infrastructure/
 COPY Services/Services/Services.csproj ./Services/
 COPY Web/ApiSampleFinal.csproj ./Web/
 
 # Restaura las dependencias del proyecto
-RUN dotnet restore
+RUN dotnet restore ApiSampleFinal.sln
 
 # Copia el resto de los archivos y compila la aplicación
 COPY . ./
