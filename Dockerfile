@@ -4,18 +4,17 @@ WORKDIR /app
 
 # Copia los archivos de proyecto y la solución
 COPY Web/ApiSampleFinal.sln ./Web/
-COPY Domain/Domain/Domain.csproj ./Domain/
-COPY Infrastructure/Infrastructure/Infrastructure.csproj ./Infrastructure/
-COPY Services/Services/Services.csproj ./Services/
+COPY Domain/Domain/Domain.csproj ./Domain/Domain/
+COPY Infrastructure/Infrastructure/Infrastructure.csproj ./Infrastructure/Infrastructure/
+COPY Services/Services/Services.csproj ./Services/Services/
 COPY Web/ApiSampleFinal.csproj ./Web/
 
-# Restaura las dependencias del proyecto
+# Cambia el directorio de trabajo a /app/Web antes de ejecutar dotnet restore
 WORKDIR /app/Web
 RUN dotnet restore
 
 # Copia el resto de los archivos y compila la aplicación
 COPY . ./
-WORKDIR /app/Web
 RUN dotnet publish -c Release -o out
 
 # Utiliza una imagen runtime de .NET para ejecutar la aplicación
