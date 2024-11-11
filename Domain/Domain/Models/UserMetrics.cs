@@ -10,6 +10,6 @@ namespace Domain.Models
 
         public double peso { get; set; }
 
-        public double Haltura { get; set; }
+        public double altura { get; set; }
     }
 }
