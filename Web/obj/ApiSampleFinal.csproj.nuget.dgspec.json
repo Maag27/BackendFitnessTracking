@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\Web\\ApiSampleFinal.csproj": {}
+    "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\web\\ApiSampleFinal.csproj": {}
   },
   "projects": {
     "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\Domain\\Domain\\Domain.csproj": {
@@ -212,14 +212,14 @@
         }
       }
     },
-    "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\Web\\ApiSampleFinal.csproj": {
+    "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\web\\ApiSampleFinal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\Web\\ApiSampleFinal.csproj",
+        "projectUniqueName": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\web\\ApiSampleFinal.csproj",
         "projectName": "ApiSampleFinal",
-        "projectPath": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\Web\\ApiSampleFinal.csproj",
+        "projectPath": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\web\\ApiSampleFinal.csproj",
         "packagesPath": "C:\\Users\\Hiroshi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\Web\\obj\\",
+        "outputPath": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hiroshi\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -268,6 +268,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.8, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[8.0.10, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

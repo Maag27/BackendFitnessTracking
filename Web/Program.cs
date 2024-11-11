@@ -22,7 +22,8 @@ namespace ApiSampleFinal
             builder.Services.AddControllers();
 
             // Dependency Injection
-            builder.Services.AddScoped<IMilkService, MilkService>();
+            // Repositorio de Milk
+            builder.Services.AddScoped<IMilkRepository, MilkRepository>();
             builder.Services.AddScoped<UserMetricsService>();
 
             // Repository Injection
@@ -31,7 +32,7 @@ namespace ApiSampleFinal
 
             // DbContext Configuration
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
             // Swagger / OpenAPI
             builder.Services.AddEndpointsApiExplorer();

@@ -175,3 +175,10 @@ C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\obj\Debug\net8.0\refint\ApiSampleF
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\obj\Debug\net8.0\ApiSampleFinal.pdb
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\obj\Debug\net8.0\ApiSampleFinal.genruntimeconfig.cache
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\obj\Debug\net8.0\ref\ApiSampleFinal.dll
+C:\Users\Hiroshi\Downloads\ApiSampleFinal\web\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Hiroshi\Downloads\ApiSampleFinal\web\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Hiroshi\Downloads\ApiSampleFinal\web\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\Hiroshi\Downloads\ApiSampleFinal\web\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Hiroshi\Downloads\ApiSampleFinal\web\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\Hiroshi\Downloads\ApiSampleFinal\web\bin\Debug\net8.0\Npgsql.dll
+C:\Users\Hiroshi\Downloads\ApiSampleFinal\web\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
