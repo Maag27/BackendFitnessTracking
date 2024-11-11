@@ -13,7 +13,7 @@ COPY Web/ApiSampleFinal.csproj ./Web/
 WORKDIR /src/Web
 RUN dotnet restore
 
-# Eliminamos carpetas de compilación anteriores
+# Eliminamos carpetas de compilación anteriores para evitar conflictos
 RUN find . -name obj -o -name bin | xargs rm -rf
 
 # Copiamos el resto de los archivos y compilamos la aplicación
