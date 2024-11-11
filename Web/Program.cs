@@ -21,15 +21,15 @@ namespace ApiSampleFinal
             // Add services to the container
             builder.Services.AddControllers();
 
-            // Inyección de dependencias manual para evitar referencia circular
+            // Dependency Injection
             builder.Services.AddScoped<IMilkService, MilkService>();
             builder.Services.AddScoped<UserMetricsService>();
 
-            // Agregar los repositorios necesarios
+            // Repository Injection
             builder.Services.AddScoped<UserMetricsRepository>();
             builder.Services.AddScoped<MilkRepository>();
 
-            // Repositorios y DbContext
+            // DbContext Configuration
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
@@ -37,39 +37,39 @@ namespace ApiSampleFinal
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            // Configuración de AutoMapper
+            // AutoMapper Configuration
             var mappingConfiguration = new MapperConfiguration(m => m.AddProfile(new MappingProfile()));
             IMapper mapper = mappingConfiguration.CreateMapper();
             builder.Services.AddSingleton(mapper);
 
-            // Configuración CORS
+            // CORS Configuration
             builder.Services.AddCors(options =>
             {
-                options.AddPolicy("CORS_Policy", builder =>
+                options.AddPolicy("AllowAngularApp", policy =>
                 {
-                    builder.WithOrigins("http://localhost:4200")
-                           .AllowAnyMethod()
-                           .AllowAnyHeader();
+                    policy.WithOrigins("http://localhost:4200")
+                          .AllowAnyMethod()
+                          .AllowAnyHeader();
                 });
             });
 
             var app = builder.Build();
 
-            // Configuración SSL para desarrollo
+            // SSL Configuration for Development
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) =>
             {
                 return app.Environment.IsDevelopment() ? true : errors == SslPolicyErrors.None;
             };
 
-            // Configurar pipeline de solicitud HTTP
+            // Middleware Pipeline
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
 
-            // Aplicar política CORS
-            app.UseCors("CORS_Policy");
+            // Apply CORS Policy
+            app.UseCors("AllowAngularApp");
 
             app.UseHttpsRedirection();
             app.UseAuthorization();

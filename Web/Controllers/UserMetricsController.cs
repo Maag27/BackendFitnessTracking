@@ -18,15 +18,32 @@ namespace Web.Controllers
         [HttpPost]
         public async Task<IActionResult> AddUserMetrics([FromBody] UserMetrics userMetrics)
         {
-            var result = await _userMetricsService.AddUserMetricsAsync(userMetrics);
-            return Ok(result);
+             try
+            {
+                var result = await _userMetricsService.AddUserMetricsAsync(userMetrics);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                // Registra el error para ver detalles en la consola del servidor
+                Console.WriteLine("Error en AddUserMetrics: " + ex.Message);
+                return StatusCode(500, "Error interno del servidor al agregar métricas de usuario.");
+            }
         }
 
         [HttpGet("{userId}")]
         public async Task<IActionResult> GetUserMetricsByUserId(string userId)
         {
-            var result = await _userMetricsService.GetUserMetricsByUserIdAsync(userId);
-            return Ok(result);
+            try
+            {
+                var result = await _userMetricsService.GetUserMetricsByUserIdAsync(userId);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en GetUserMetricsByUserId: " + ex.Message);
+                return StatusCode(500, "Error interno del servidor al obtener métricas de usuario.");
+            }
         }
     }
 }
