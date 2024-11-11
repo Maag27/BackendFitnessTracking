@@ -41,9 +41,10 @@ namespace Web.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error en GetUserMetricsByUserId: " + ex.Message);
-                return StatusCode(500, "Error interno del servidor al obtener métricas de usuario.");
+                Console.WriteLine($"Error en AddUserMetrics: {ex.Message} - Detalles: {ex.InnerException?.Message}");
+                return StatusCode(500, "Error interno del servidor al agregar métricas de usuario.");
             }
+
         }
     }
 }
