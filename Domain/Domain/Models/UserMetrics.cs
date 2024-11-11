@@ -3,9 +3,13 @@ namespace Domain.Models
     public class UserMetrics
     {
         public int Id { get; set; }
-        public string? UserId { get; set; } // ID del usuario desde Firebase
-        public int Age { get; set; }
-        public double Weight { get; set; }
-        public double Height { get; set; }
+
+        public string? UserId { get; set; } 
+
+        public int edad { get; set; }
+
+        public double peso { get; set; }
+
+        public double Haltura { get; set; }
     }
 }
