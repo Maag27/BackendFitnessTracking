@@ -16,34 +16,47 @@ namespace ApiSampleFinal
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // Cargar configuración de appsettings.json
+            builder.Configuration
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddEnvironmentVariables();
+
             var configuration = builder.Configuration;
 
-            // Add services to the container
+            // Validar y obtener la cadena de conexión
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            if (string.IsNullOrWhiteSpace(connectionString))
+            {
+                throw new InvalidOperationException("La cadena de conexión 'DefaultConnection' no está configurada en appsettings.json");
+            }
+
+            // Añadir servicios al contenedor
             builder.Services.AddControllers();
 
-            // Dependency Injection
             // Repositorio de Milk
             builder.Services.AddScoped<IMilkRepository, MilkRepository>();
             builder.Services.AddScoped<UserMetricsService>();
 
-            // Repository Injection
+            // Repositorio de UserMetrics
             builder.Services.AddScoped<UserMetricsRepository>();
             builder.Services.AddScoped<MilkRepository>();
 
-            // DbContext Configuration
+            // Configuración de DbContext
             builder.Services.AddDbContext<AppDbContext>(options =>
-            options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+                options.UseNpgsql(connectionString));
 
             // Swagger / OpenAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            // AutoMapper Configuration
+            // Configuración de AutoMapper
             var mappingConfiguration = new MapperConfiguration(m => m.AddProfile(new MappingProfile()));
             IMapper mapper = mappingConfiguration.CreateMapper();
             builder.Services.AddSingleton(mapper);
 
-            // CORS Configuration
+            // Configuración de CORS
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAngularApp", policy =>
@@ -56,20 +69,20 @@ namespace ApiSampleFinal
 
             var app = builder.Build();
 
-            // SSL Configuration for Development
+            // Configuración SSL para desarrollo
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) =>
             {
                 return app.Environment.IsDevelopment() ? true : errors == SslPolicyErrors.None;
             };
 
-            // Middleware Pipeline
+            // Pipeline de Middleware
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
 
-            // Apply CORS Policy
+            // Aplicar política de CORS
             app.UseCors("AllowAngularApp");
 
             app.UseHttpsRedirection();

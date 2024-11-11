@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\web\\ApiSampleFinal.csproj": {}
+    "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\Web\\ApiSampleFinal.csproj": {}
   },
   "projects": {
     "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\Domain\\Domain\\Domain.csproj": {
@@ -122,6 +122,10 @@
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[8.0.1, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[8.0.8, )"
             }
           },
           "imports": [
@@ -212,14 +216,14 @@
         }
       }
     },
-    "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\web\\ApiSampleFinal.csproj": {
+    "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\Web\\ApiSampleFinal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\web\\ApiSampleFinal.csproj",
+        "projectUniqueName": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\Web\\ApiSampleFinal.csproj",
         "projectName": "ApiSampleFinal",
-        "projectPath": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\web\\ApiSampleFinal.csproj",
+        "projectPath": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\Web\\ApiSampleFinal.csproj",
         "packagesPath": "C:\\Users\\Hiroshi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\web\\obj\\",
+        "outputPath": "C:\\Users\\Hiroshi\\Downloads\\ApiSampleFinal\\Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hiroshi\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -263,7 +267,25 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
@@ -271,7 +293,7 @@
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.8, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
