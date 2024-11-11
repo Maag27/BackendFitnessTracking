@@ -2,21 +2,24 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copiamos el archivo de solución y los archivos de proyecto para restaurar dependencias
+# Copiar el archivo de solución y archivos de proyecto
 COPY Web/ApiSampleFinal.sln ./Web/
 COPY Domain/Domain/Domain.csproj ./Domain/Domain/
 COPY Infrastructure/Infrastructure/Infrastructure.csproj ./Infrastructure/Infrastructure/
 COPY Services/Services/Services.csproj ./Services/Services/
 COPY Web/ApiSampleFinal.csproj ./Web/
 
-# Restauramos las dependencias del proyecto
+# Restaurar las dependencias del proyecto
 WORKDIR /src/Web
 RUN dotnet restore
 
-# Eliminamos carpetas de compilación anteriores para evitar conflictos
-RUN find . -name obj -o -name bin | xargs rm -rf
+# Limpiar archivos generados en los directorios de todos los proyectos
+RUN rm -rf /src/Web/obj /src/Web/bin
+RUN rm -rf /src/Domain/Domain/obj /src/Domain/Domain/bin
+RUN rm -rf /src/Infrastructure/Infrastructure/obj /src/Infrastructure/Infrastructure/bin
+RUN rm -rf /src/Services/Services/obj /src/Services/Services/bin
 
-# Copiamos el resto de los archivos y compilamos la aplicación
+# Copiar el resto de los archivos y publicar la aplicación
 COPY . ./
 RUN dotnet publish -c Release -o /app/out
 
