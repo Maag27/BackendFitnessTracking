@@ -32,6 +32,9 @@ namespace ApiSampleFinal
                 throw new InvalidOperationException("La cadena de conexión 'DefaultConnection' no está configurada en appsettings.json");
             }
 
+            // Especificar el puerto de Render (8080) para asegurarnos de que Render redirija correctamente las solicitudes
+            builder.WebHost.UseUrls("http://*:8080");
+
             // Añadir servicios al contenedor
             builder.Services.AddControllers();
 
@@ -43,7 +46,7 @@ namespace ApiSampleFinal
 
             // Configuración de DbContext con PostgreSQL
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseNpgsql(connectionString)); // No se necesita configuracion SSL adicional
+                options.UseNpgsql(connectionString));
 
             // Configuración de Swagger / OpenAPI
             builder.Services.AddEndpointsApiExplorer();
@@ -54,15 +57,14 @@ namespace ApiSampleFinal
             IMapper mapper = mappingConfiguration.CreateMapper();
             builder.Services.AddSingleton(mapper);
 
-            // Configuración de CORS
+            // Configuración de CORS para permitir el frontend desde localhost:4200
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAngularApp", policy =>
                 {
-                    // Permitir cualquier origen, método y encabezado para pruebas
-                    policy.AllowAnyOrigin()
-                          .AllowAnyMethod()
-                          .AllowAnyHeader();
+                    policy.WithOrigins("http://localhost:4200")  // Permitir solo el origen del frontend Angular
+                          .AllowAnyMethod()                      // Permitir cualquier método HTTP (GET, POST, etc.)
+                          .AllowAnyHeader();                     // Permitir cualquier encabezado
                 });
             });
 
