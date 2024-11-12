@@ -10,7 +10,7 @@ namespace Domain
     public class Milk
     {
         //indicamos que id es la llave primaria
-       // [Key]
+       [Key]
         public Guid Id { get; set; }
         public int Litters { get; set; }
         public string Farm { get; set; } 

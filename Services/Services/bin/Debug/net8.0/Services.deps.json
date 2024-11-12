@@ -589,7 +589,7 @@
         "runtime": {
           "Domain.dll": {
             "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -604,7 +604,7 @@
         "runtime": {
           "Infrastructure.dll": {
             "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
+            "fileVersion": "0.0.0.0"
           }
         }
       }

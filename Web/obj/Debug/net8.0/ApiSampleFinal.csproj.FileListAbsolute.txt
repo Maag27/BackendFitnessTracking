@@ -157,8 +157,6 @@ C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\bin\Debug\net8.0\Domain.pdb
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\bin\Debug\net8.0\Infrastructure.pdb
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\obj\Debug\net8.0\ApiSampleFinal.csproj.AssemblyReference.cache
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\obj\Debug\net8.0\ApiSampleFinal.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\obj\Debug\net8.0\ApiSampleFinal.AssemblyInfoInputs.cache
-C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\obj\Debug\net8.0\ApiSampleFinal.AssemblyInfo.cs
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\obj\Debug\net8.0\ApiSampleFinal.csproj.CoreCompileInputs.cache
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\obj\Debug\net8.0\ApiSampleFinal.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Hiroshi\Downloads\ApiSampleFinal\Web\obj\Debug\net8.0\ApiSampleFinal.MvcApplicationPartsAssemblyInfo.cache
