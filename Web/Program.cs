@@ -62,7 +62,7 @@ namespace ApiSampleFinal
             {
                 options.AddPolicy("AllowAngularApp", policy =>
                 {
-                    policy.WithOrigins("http://localhost:4200")  // Permitir solo el origen del frontend Angular
+                        policy.WithOrigins("http://localhost:4200", "https://backendfitnesstracking.onrender.com") // Permitir origen local y en Render
                           .AllowAnyMethod()                      // Permitir cualquier método HTTP (GET, POST, etc.)
                           .AllowAnyHeader();                     // Permitir cualquier encabezado
                 });
