@@ -32,8 +32,12 @@ namespace ApiSampleFinal
                 throw new InvalidOperationException("La cadena de conexión 'DefaultConnection' no está configurada en appsettings.json");
             }
 
-            // Especificar el puerto de Render (8080) para asegurarnos de que Render redirija correctamente las solicitudes
-            builder.WebHost.UseUrls("http://*:8080");
+            // Especificar el puerto de Render (8080) y HTTPS (8443)
+            builder.WebHost.ConfigureKestrel(options =>
+            {
+                options.ListenAnyIP(8080); // Puerto HTTP en Render
+                options.ListenAnyIP(8443, listenOptions => listenOptions.UseHttps()); // Puerto HTTPS en Render
+            });
 
             // Añadir servicios al contenedor
             builder.Services.AddControllers();
@@ -57,14 +61,14 @@ namespace ApiSampleFinal
             IMapper mapper = mappingConfiguration.CreateMapper();
             builder.Services.AddSingleton(mapper);
 
-            // Configuración de CORS para permitir el frontend desde localhost:4200
+            // Configuración de CORS para permitir el frontend desde localhost:4200 y el dominio de Render
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAngularApp", policy =>
                 {
-                    policy.WithOrigins("http://localhost:4200")  // Permitir solo el origen del frontend Angular
-                          .AllowAnyMethod()                      // Permitir cualquier método HTTP (GET, POST, etc.)
-                          .AllowAnyHeader();                     // Permitir cualquier encabezado
+                    policy.WithOrigins("http://localhost:4200", "https://backendfitnesstracking.onrender.com")
+                          .AllowAnyMethod()
+                          .AllowAnyHeader();
                 });
             });
 
@@ -73,7 +77,6 @@ namespace ApiSampleFinal
             // Configuración SSL para desarrollo
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) =>
             {
-                // Aceptar certificado SSL solo en desarrollo
                 return app.Environment.IsDevelopment() ? true : errors == SslPolicyErrors.None;
             };
 
@@ -87,7 +90,12 @@ namespace ApiSampleFinal
             // Aplicar política de CORS
             app.UseCors("AllowAngularApp");
 
-            app.UseHttpsRedirection();
+            // Redirección HTTPS solo en producción
+            if (app.Environment.IsProduction())
+            {
+                app.UseHttpsRedirection();
+            }
+
             app.UseAuthorization();
             app.MapControllers();
             app.Run();
