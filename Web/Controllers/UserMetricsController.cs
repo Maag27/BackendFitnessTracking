@@ -16,19 +16,19 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddUserMetrics([FromBody] UserMetrics userMetrics)
+        public async Task<IActionResult> AddOrUpdateUserMetrics([FromBody] UserMetrics userMetrics)
         {
             try
             {
-                Console.WriteLine($"Intentando agregar métricas del usuario: {userMetrics.UserId}");
-                var result = await _userMetricsService.AddUserMetricsAsync(userMetrics);
-                Console.WriteLine("Métricas del usuario agregadas con éxito.");
+                Console.WriteLine($"Intentando agregar o actualizar métricas del usuario: {userMetrics.UserId}");
+                var result = await _userMetricsService.AddOrUpdateUserMetricsAsync(userMetrics);
+                Console.WriteLine("Métricas del usuario procesadas con éxito.");
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error en AddUserMetrics: {ex.Message} - StackTrace: {ex.StackTrace}");
-                return StatusCode(500, "Error interno del servidor al agregar métricas de usuario.");
+                Console.WriteLine($"Error en AddOrUpdateUserMetrics: {ex.Message} - StackTrace: {ex.StackTrace}");
+                return StatusCode(500, "Error interno del servidor al procesar métricas de usuario.");
             }
         }
 
@@ -40,7 +40,7 @@ namespace Web.Controllers
                 Console.WriteLine($"Intentando obtener métricas para userId: {userId}");
                 var result = await _userMetricsService.GetUserMetricsByUserIdAsync(userId);
 
-                if (result == null || !result.Any())
+                if (result == null)
                 {
                     Console.WriteLine("No se encontraron métricas para el usuario especificado.");
                     return NotFound("No se encontraron métricas para el usuario.");

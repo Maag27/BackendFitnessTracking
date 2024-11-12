@@ -43,5 +43,22 @@ namespace Infrastructure.Repositories
                 throw;
             }
         }
+
+        public async Task<UserMetrics> UpdateUserMetricsAsync(UserMetrics userMetrics)
+        {
+            try
+            {
+                Console.WriteLine($"Actualizando métricas para userId: {userMetrics.UserId}");
+                _context.UserMetrics.Update(userMetrics);
+                await _context.SaveChangesAsync();
+                Console.WriteLine("Métricas del usuario actualizadas exitosamente en la base de datos.");
+                return userMetrics;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al actualizar métricas: {ex.Message}");
+                throw;
+            }
+        }
     }
 }
