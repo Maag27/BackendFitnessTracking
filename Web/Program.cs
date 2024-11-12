@@ -31,13 +31,9 @@ namespace ApiSampleFinal
             {
                 throw new InvalidOperationException("La cadena de conexión 'DefaultConnection' no está configurada en appsettings.json");
             }
+            
+            builder.WebHost.UseUrls("http://*:8080");
 
-            // Especificar el puerto de Render (8080) y HTTPS (8443)
-            builder.WebHost.ConfigureKestrel(options =>
-            {
-                options.ListenAnyIP(8080); // Puerto HTTP en Render
-                options.ListenAnyIP(8443, listenOptions => listenOptions.UseHttps()); // Puerto HTTPS en Render
-            });
 
             // Añadir servicios al contenedor
             builder.Services.AddControllers();
@@ -50,7 +46,7 @@ namespace ApiSampleFinal
 
             // Configuración de DbContext con PostgreSQL
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseNpgsql(connectionString));
+                options.UseNpgsql(connectionString)); // No se necesita configuracion SSL adicional
 
             // Configuración de Swagger / OpenAPI
             builder.Services.AddEndpointsApiExplorer();
@@ -61,14 +57,16 @@ namespace ApiSampleFinal
             IMapper mapper = mappingConfiguration.CreateMapper();
             builder.Services.AddSingleton(mapper);
 
-            // Configuración de CORS para permitir el frontend desde localhost:4200 y el dominio de Render
+            // Configuración de CORS
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAngularApp", policy =>
                 {
-                    policy.WithOrigins("http://localhost:4200", "https://backendfitnesstracking.onrender.com")
-                          .AllowAnyMethod()
-                          .AllowAnyHeader();
+                    // Permitir cualquier origen, método y encabezado para pruebas
+                    policy.AllowAnyOrigin()    // Permitir cualquier origen
+                    .AllowAnyMethod()    // Permitir cualquier método (GET, POST, etc.)
+                    .AllowAnyHeader()    // Permitir cualquier encabezado
+                    .WithExposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Headers");
                 });
             });
 
@@ -77,6 +75,7 @@ namespace ApiSampleFinal
             // Configuración SSL para desarrollo
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) =>
             {
+                // Aceptar certificado SSL solo en desarrollo
                 return app.Environment.IsDevelopment() ? true : errors == SslPolicyErrors.None;
             };
 
@@ -90,16 +89,10 @@ namespace ApiSampleFinal
             // Aplicar política de CORS
             app.UseCors("AllowAngularApp");
 
-            // Redirección HTTPS solo en producción
-            if (app.Environment.IsProduction())
-            {
-                app.UseHttpsRedirection();
-            }
-
+            app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
             app.Run();
         }
     }
 }
-
