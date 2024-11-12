@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Services;
 using System;
+using System.IO;
 using System.Net;
 using System.Net.Security;
 
@@ -35,19 +36,17 @@ namespace ApiSampleFinal
             // Añadir servicios al contenedor
             builder.Services.AddControllers();
 
-            // Repositorio de Milk
+            // Repositorios y servicios
             builder.Services.AddScoped<IMilkRepository, MilkRepository>();
             builder.Services.AddScoped<UserMetricsService>();
-
-            // Repositorio de UserMetrics
             builder.Services.AddScoped<UserMetricsRepository>();
             builder.Services.AddScoped<MilkRepository>();
 
-            // Configuración de DbContext
+            // Configuración de DbContext con PostgreSQL
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseNpgsql(connectionString));
 
-            // Swagger / OpenAPI
+            // Configuración de Swagger / OpenAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
