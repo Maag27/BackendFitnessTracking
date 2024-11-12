@@ -2,7 +2,6 @@ using ApiSampleFinal.Automapper;
 using AutoMapper;
 using Infrastructure;
 using Infrastructure.Repositories;
-using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Services;
 using System;
@@ -18,7 +17,7 @@ namespace ApiSampleFinal
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Cargar configuración de appsettings.json
+            // Cargar configuración de appsettings.json y variables de entorno
             builder.Configuration
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -44,7 +43,7 @@ namespace ApiSampleFinal
 
             // Configuración de DbContext con PostgreSQL
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseNpgsql(connectionString));
+                options.UseNpgsql(connectionString)); // No se necesita configuracion SSL adicional
 
             // Configuración de Swagger / OpenAPI
             builder.Services.AddEndpointsApiExplorer();
@@ -60,7 +59,8 @@ namespace ApiSampleFinal
             {
                 options.AddPolicy("AllowAngularApp", policy =>
                 {
-                        policy.AllowAnyOrigin()
+                    // Permitir cualquier origen, método y encabezado para pruebas
+                    policy.AllowAnyOrigin()
                           .AllowAnyMethod()
                           .AllowAnyHeader();
                 });
@@ -71,6 +71,7 @@ namespace ApiSampleFinal
             // Configuración SSL para desarrollo
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) =>
             {
+                // Aceptar certificado SSL solo en desarrollo
                 return app.Environment.IsDevelopment() ? true : errors == SslPolicyErrors.None;
             };
 
