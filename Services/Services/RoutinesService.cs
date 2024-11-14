@@ -1,5 +1,7 @@
 using Domain.Models;
 using Infrastructure.Repositories;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Services
 {
@@ -12,14 +14,16 @@ namespace Services
             _repository = repository;
         }
 
-        public async Task<Routine> AddRoutineAsync(Routine routine)
+        // Crear rutina del usuario
+        public async Task<UserRoutine> CreateUserRoutineAsync(string userId, int routineTemplateId)
         {
-            return await _repository.AddRoutineAsync(routine);
+            return await _repository.CreateUserRoutineAsync(userId, routineTemplateId);
         }
 
-        public async Task<List<Routine>> GetRoutinesByUserIdAsync(string userId)
+        // Obtener rutinas del usuario
+        public async Task<List<UserRoutine>> GetUserRoutinesByUserIdAsync(string userId)
         {
-            return await _repository.GetRoutinesByUserIdAsync(userId);
+            return await _repository.GetUserRoutinesByUserIdAsync(userId);
         }
     }
 }

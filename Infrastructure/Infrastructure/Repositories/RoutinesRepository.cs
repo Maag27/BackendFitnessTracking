@@ -15,21 +15,50 @@ namespace Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<Routine> AddRoutineAsync(Routine routine)
+        // Crear una nueva rutina de usuario basada en un RoutineTemplate
+        public async Task<UserRoutine> CreateUserRoutineAsync(string userId, int routineTemplateId)
         {
-            // Agregamos el objeto rutina
-            _context.RoutineTemplates.Add(routine);
+            // Cargar el RoutineTemplate con sus ejercicios y detalles
+            var routineTemplate = await _context.RoutineTemplates
+                .Include(rt => rt.Exercises!)
+                .ThenInclude(e => e.ExerciseDetails!)
+                .FirstOrDefaultAsync(rt => rt.RoutineTemplateId == routineTemplateId);
+
+            if (routineTemplate == null)
+                throw new Exception("Routine Template no encontrado");
+
+            // Validar si la lista de ejercicios es nula antes de usarla
+            var exercises = routineTemplate.Exercises ?? new List<Exercise>();
+
+            // Crear UserRoutine con ejercicios personalizados
+            var userRoutine = new UserRoutine
+            {
+                UserId = userId,
+                RoutineTemplateId = routineTemplateId,
+                UserExercises = exercises.Select(e => new UserExercise
+                {
+                    ExerciseTemplateId = e.ExerciseTemplateId,
+                    UserExerciseDetails = (e.ExerciseDetails ?? new List<ExerciseDetail>()).Select(ed => new UserExerciseDetail
+                    {
+                        Series = ed.Series,
+                        Repetitions = ed.Repetitions,
+                        RestTime = ed.RestTime
+                    }).ToList()
+                }).ToList()
+            };
+
+            _context.UserRoutines.Add(userRoutine);
             await _context.SaveChangesAsync();
-            return routine;
+            return userRoutine;
         }
 
-        public async Task<List<Routine>> GetRoutinesByUserIdAsync(string userId)
+        // Obtener rutinas personalizadas de un usuario
+        public async Task<List<UserRoutine>> GetUserRoutinesByUserIdAsync(string userId)
         {
-            // Comprobamos si RoutineTemplates no es null y si Exercises y UserId no son null
-            return await _context.RoutineTemplates!
-                .Where(r => r.UserId == userId && r.Exercises != null)
-                .Include(r => r.Exercises!)
-                .ThenInclude(e => e.ExerciseDetails!)
+            return await _context.UserRoutines!
+                .Where(ur => ur.UserId == userId)
+                .Include(ur => ur.UserExercises!)
+                .ThenInclude(ue => ue.UserExerciseDetails!)
                 .ToListAsync();
         }
     }
