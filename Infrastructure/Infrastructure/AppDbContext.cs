@@ -6,24 +6,70 @@ namespace Infrastructure
 {
     public class AppDbContext : DbContext
     {
-        // Constructor que acepta las opciones de configuración del contexto
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         // Definición de tablas en la base de datos
-        public DbSet<Milk> Milks { get; set; }
-        public DbSet<Cow> Cows { get; set; }
-        public DbSet<UserMetrics> UserMetrics { get; set; }
+        public DbSet<Milk> Milks { get; set; } = null!;
+        public DbSet<Cow> Cows { get; set; } = null!;
+        public DbSet<UserMetrics> UserMetrics { get; set; } = null!;
 
-        // Configuración de mapeo de columnas en la base de datos
+        // Plantillas de rutinas y ejercicios predefinidos
+        public DbSet<Routine> RoutineTemplates { get; set; } = null!;
+        public DbSet<Exercise> ExerciseTemplates { get; set; } = null!;
+        public DbSet<ExerciseDetail> ExerciseDetailTemplates { get; set; } = null!;
+
+        // Tablas para rutinas y ejercicios específicos del usuario
+        public DbSet<UserRoutine> UserRoutines { get; set; } = null!;
+        public DbSet<UserExercise> UserExercises { get; set; } = null!;
+        public DbSet<UserExerciseDetail> UserExerciseDetails { get; set; } = null!;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Configuración específica para la entidad Milk
-            modelBuilder.Entity<Milk>()
-                .Property(m => m.Id)
-                .HasColumnType("uuid") // Especificamos el tipo uuid para PostgreSQL
-                .HasDefaultValueSql("uuid_generate_v4()"); // Genera un UUID por defecto
+            // Configuración de claves primarias
+            modelBuilder.Entity<Exercise>()
+                .HasKey(e => e.ExerciseId);  // Clave primaria para Exercise
+
+            modelBuilder.Entity<ExerciseDetail>()
+                .HasKey(ed => ed.ExerciseDetailId);  // Clave primaria para ExerciseDetail
+
+            modelBuilder.Entity<Routine>()
+                .HasKey(r => r.RoutineTemplateId);  // Clave primaria para Routine
+
+            modelBuilder.Entity<UserExercise>()
+                .HasKey(ue => ue.UserExerciseId);  // Clave primaria para UserExercise
+
+            modelBuilder.Entity<UserExerciseDetail>()
+                .HasKey(ued => ued.UserDetailId);  // Clave primaria para UserExerciseDetail
+
+            modelBuilder.Entity<UserRoutine>()
+                .HasKey(ur => ur.UserRoutineId);  // Clave primaria para UserRoutine
+
+            // Configuración de relaciones
+            modelBuilder.Entity<Routine>()
+                .HasMany(r => r.Exercises)
+                .WithOne()
+                .HasForeignKey(e => e.RoutineTemplateId);
+
+            modelBuilder.Entity<Exercise>()
+                .HasMany(e => e.ExerciseDetails)
+                .WithOne()
+                .HasForeignKey(ed => ed.ExerciseTemplateId);
+
+            modelBuilder.Entity<UserRoutine>()
+                .HasMany(ur => ur.UserExercises)
+                .WithOne()
+                .HasForeignKey(ue => ue.UserRoutineId);
+
+            modelBuilder.Entity<UserExercise>()
+                .HasMany(ue => ue.UserExerciseDetails)
+                .WithOne()
+                .HasForeignKey(ued => ued.UserExerciseId);
+
+            // Configuración adicional si es necesario
+            // Aquí podrías agregar configuraciones adicionales si existen entidades sin clave (HasNoKey).
 
             base.OnModelCreating(modelBuilder);
         }
+
     }
 }
