@@ -15,10 +15,24 @@ namespace Infrastructure.Repositories
             _context = context;
         }
 
+        // Obtener todas las rutinas predefinidas
+        public async Task<List<Routine>> GetRoutineTemplatesAsync()
+        {
+            return await _context.RoutineTemplates.ToListAsync();
+        }
+
+        // Obtener los ejercicios asociados a una rutina predefinida
+        public async Task<List<Exercise>> GetExercisesByRoutineTemplateIdAsync(int routineTemplateId)
+        {
+            return await _context.ExerciseTemplates
+                .Where(e => e.RoutineTemplateId == routineTemplateId)
+                .Include(e => e.ExerciseDetails)
+                .ToListAsync();
+        }
+
         // Crear una nueva rutina de usuario basada en un RoutineTemplate
         public async Task<UserRoutine> CreateUserRoutineAsync(string userId, int routineTemplateId)
         {
-            // Cargar el RoutineTemplate con sus ejercicios y detalles
             var routineTemplate = await _context.RoutineTemplates
                 .Include(rt => rt.Exercises!)
                 .ThenInclude(e => e.ExerciseDetails!)
@@ -27,10 +41,8 @@ namespace Infrastructure.Repositories
             if (routineTemplate == null)
                 throw new Exception("Routine Template no encontrado");
 
-            // Validar si la lista de ejercicios es nula antes de usarla
             var exercises = routineTemplate.Exercises ?? new List<Exercise>();
 
-            // Crear UserRoutine con ejercicios personalizados
             var userRoutine = new UserRoutine
             {
                 UserId = userId,
@@ -50,16 +62,6 @@ namespace Infrastructure.Repositories
             _context.UserRoutines.Add(userRoutine);
             await _context.SaveChangesAsync();
             return userRoutine;
-        }
-
-        // Obtener rutinas personalizadas de un usuario
-        public async Task<List<UserRoutine>> GetUserRoutinesByUserIdAsync(string userId)
-        {
-            return await _context.UserRoutines!
-                .Where(ur => ur.UserId == userId)
-                .Include(ur => ur.UserExercises!)
-                .ThenInclude(ue => ue.UserExerciseDetails!)
-                .ToListAsync();
         }
     }
 }
