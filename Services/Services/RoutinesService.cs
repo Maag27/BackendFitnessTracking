@@ -20,7 +20,7 @@ namespace Services
             return await _repository.GetRoutineTemplatesAsync();
         }
 
-        // Obtener los ejercicios de una rutina predefinida
+        // Obtener ejercicios de una rutina predefinida
         public async Task<List<Exercise>> GetExercisesByRoutineTemplateIdAsync(int routineTemplateId)
         {
             return await _repository.GetExercisesByRoutineTemplateIdAsync(routineTemplateId);
