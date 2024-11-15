@@ -43,6 +43,8 @@ namespace ApiSampleFinal
             builder.Services.AddScoped<UserMetricsService>();
             builder.Services.AddScoped<UserMetricsRepository>();
             builder.Services.AddScoped<MilkRepository>();
+            builder.Services.AddScoped<RoutinesRepository>();
+            builder.Services.AddScoped<RoutinesService>();  
 
             // Configuración de DbContext con PostgreSQL
             builder.Services.AddDbContext<AppDbContext>(options =>
@@ -95,4 +97,3 @@ namespace ApiSampleFinal
         }
     }
 }
-//Hp
