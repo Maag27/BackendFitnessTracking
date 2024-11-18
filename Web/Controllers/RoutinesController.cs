@@ -32,9 +32,14 @@ namespace Web.Controllers
         }
 
         [HttpPost("create-user-routine")]
-        public async Task<IActionResult> CreateUserRoutine([FromQuery] string userId, [FromQuery] int routineTemplateId)
+        public async Task<IActionResult> CreateUserRoutine([FromBody] CreateUserRoutineRequest request)
         {
-            var result = await _routinesService.CreateUserRoutineAsync(userId, routineTemplateId);
+            if (string.IsNullOrEmpty(request.UserId) || request.RoutineTemplateId <= 0)
+            {
+                return BadRequest("Datos inválidos. Se requiere un userId válido y un routineTemplateId mayor a 0.");
+            }
+
+            var result = await _routinesService.CreateUserRoutineAsync(request.UserId, request.RoutineTemplateId);
             return Ok(result);
         }
 
@@ -58,5 +63,12 @@ namespace Web.Controllers
             var success = await _routinesService.DeleteUserRoutineAsync(userRoutineId);
             return success ? NoContent() : NotFound();
         }
+    }
+
+    // DTO para la solicitud de creación de rutina
+    public class CreateUserRoutineRequest
+    {
+        public string? UserId { get; set; }
+        public int RoutineTemplateId { get; set; }
     }
 }

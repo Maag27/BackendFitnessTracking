@@ -53,13 +53,14 @@ namespace Infrastructure.Repositories
             try
             {
                 var routineTemplate = await _context.RoutineTemplates
-                    .Include(rt => rt.Exercises!.AsEnumerable()) // Convertir a IEnumerable para evitar error de nulabilidad
-                    .ThenInclude(e => e.ExerciseDetails!.AsEnumerable())
+                    .Include(rt => rt.Exercises!) // Forzar que Exercises no sea nulo con '!'
+                    .ThenInclude(e => e.ExerciseDetails!) // Forzar que ExerciseDetails no sea nulo
                     .FirstOrDefaultAsync(rt => rt.RoutineTemplateId == routineTemplateId);
 
                 if (routineTemplate == null)
                     throw new Exception("Routine Template no encontrado");
 
+                // Manejo seguro de nulabilidad
                 var exercises = routineTemplate.Exercises ?? new List<Exercise>();
 
                 var userRoutine = new UserRoutine
@@ -95,8 +96,8 @@ namespace Infrastructure.Repositories
             try
             {
                 return await _context.UserRoutines
-                    .Include(ur => ur.UserExercises!.AsEnumerable()) // Solución: AsEnumerable para tratar nulabilidad
-                        .ThenInclude(ue => ue.UserExerciseDetails!.AsEnumerable())
+                    .Include(ur => ur.UserExercises!) // Forzar que UserExercises no sea nulo
+                        .ThenInclude(ue => ue.UserExerciseDetails!) // Forzar que UserExerciseDetails no sea nulo
                     .Where(ur => ur.UserId == userId)
                     .ToListAsync();
             }
@@ -113,8 +114,8 @@ namespace Infrastructure.Repositories
             try
             {
                 var existingRoutine = await _context.UserRoutines
-                    .Include(ur => ur.UserExercises!.AsEnumerable()) // Solución de nulabilidad
-                        .ThenInclude(ue => ue.UserExerciseDetails!.AsEnumerable())
+                    .Include(ur => ur.UserExercises!) // Forzar que UserExercises no sea nulo
+                        .ThenInclude(ue => ue.UserExerciseDetails!) // Forzar que UserExerciseDetails no sea nulo
                     .FirstOrDefaultAsync(ur => ur.UserRoutineId == updatedRoutine.UserRoutineId);
 
                 if (existingRoutine == null)
