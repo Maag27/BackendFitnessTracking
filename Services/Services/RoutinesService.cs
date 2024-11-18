@@ -24,10 +24,11 @@ namespace Services
             return await _repository.GetExercisesByRoutineTemplateIdAsync(routineTemplateId);
         }
 
-        public async Task<UserRoutine> CreateUserRoutineAsync(string userId, int routineTemplateId)
+        public async Task<UserRoutine> CreateUserRoutineAsync(string userId, int routineTemplateId, int exerciseTemplateId)
         {
-            return await _repository.CreateUserRoutineAsync(userId, routineTemplateId);
+            return await _repository.CreateUserRoutineAsync(userId, routineTemplateId, exerciseTemplateId);
         }
+
 
         public async Task<List<UserRoutine>> GetUserRoutinesAsync(string userId)
         {

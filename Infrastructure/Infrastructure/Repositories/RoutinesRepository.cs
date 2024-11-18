@@ -48,47 +48,54 @@ namespace Infrastructure.Repositories
         }
 
         // Crear una nueva rutina de usuario basada en un RoutineTemplate
-        public async Task<UserRoutine> CreateUserRoutineAsync(string userId, int routineTemplateId)
+        public async Task<UserRoutine> CreateUserRoutineAsync(string userId, int routineTemplateId, int exerciseTemplateId)
+{
+    try
+    {
+        var routineTemplate = await _context.RoutineTemplates
+            .Include(rt => rt.Exercises!)
+            .ThenInclude(e => e.ExerciseDetails!)
+            .FirstOrDefaultAsync(rt => rt.RoutineTemplateId == routineTemplateId);
+
+        if (routineTemplate == null)
+            throw new Exception("Routine Template no encontrado");
+
+        // Buscar el ejercicio específico
+        var selectedExercise = routineTemplate.Exercises?.FirstOrDefault(e => e.ExerciseTemplateId == exerciseTemplateId);
+        if (selectedExercise == null)
+            throw new Exception("Ejercicio seleccionado no encontrado en la rutina.");
+
+        // Crear el UserRoutine con solo el ejercicio seleccionado
+        var userRoutine = new UserRoutine
         {
-            try
+            UserId = userId,
+            RoutineTemplateId = routineTemplateId,
+            UserExercises = new List<UserExercise>
             {
-                var routineTemplate = await _context.RoutineTemplates
-                    .Include(rt => rt.Exercises!) // Forzar que Exercises no sea nulo con '!'
-                    .ThenInclude(e => e.ExerciseDetails!) // Forzar que ExerciseDetails no sea nulo
-                    .FirstOrDefaultAsync(rt => rt.RoutineTemplateId == routineTemplateId);
-
-                if (routineTemplate == null)
-                    throw new Exception("Routine Template no encontrado");
-
-                // Manejo seguro de nulabilidad
-                var exercises = routineTemplate.Exercises ?? new List<Exercise>();
-
-                var userRoutine = new UserRoutine
+                new UserExercise
                 {
-                    UserId = userId,
-                    RoutineTemplateId = routineTemplateId,
-                    UserExercises = exercises.Select(e => new UserExercise
+                    ExerciseTemplateId = selectedExercise.ExerciseTemplateId,
+                    UserExerciseDetails = selectedExercise.ExerciseDetails?.Select(ed => new UserExerciseDetail
                     {
-                        ExerciseTemplateId = e.ExerciseTemplateId,
-                        UserExerciseDetails = (e.ExerciseDetails ?? new List<ExerciseDetail>()).Select(ed => new UserExerciseDetail
-                        {
-                            Series = ed.Series,
-                            Repetitions = ed.Repetitions,
-                            RestTime = ed.RestTime
-                        }).ToList()
+                        Series = ed.Series,
+                        Repetitions = ed.Repetitions,
+                        RestTime = ed.RestTime
                     }).ToList()
-                };
+                }
+            }
+        };
 
-                _context.UserRoutines.Add(userRoutine);
-                await _context.SaveChangesAsync();
-                return userRoutine;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error en CreateUserRoutineAsync: {ex.Message}");
-                throw new Exception("Error al crear la rutina de usuario.");
-            }
-        }
+        _context.UserRoutines.Add(userRoutine);
+        await _context.SaveChangesAsync();
+        return userRoutine;
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error en CreateUserRoutineAsync: {ex.Message}");
+        throw new Exception("Error al crear la rutina de usuario.");
+    }
+}
+
 
         // Obtener rutinas del usuario por UserId
         public async Task<List<UserRoutine>> GetUserRoutinesAsync(string userId)

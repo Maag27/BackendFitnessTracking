@@ -34,14 +34,15 @@ namespace Web.Controllers
         [HttpPost("create-user-routine")]
         public async Task<IActionResult> CreateUserRoutine([FromBody] CreateUserRoutineRequest request)
         {
-            if (string.IsNullOrEmpty(request.UserId) || request.RoutineTemplateId <= 0)
+            if (string.IsNullOrEmpty(request.UserId) || request.RoutineTemplateId <= 0 || request.ExerciseTemplateId <= 0)
             {
-                return BadRequest("Datos inválidos. Se requiere un userId válido y un routineTemplateId mayor a 0.");
+                return BadRequest("Datos inválidos. Se requiere un userId válido, un routineTemplateId y un exerciseTemplateId mayores a 0.");
             }
 
-            var result = await _routinesService.CreateUserRoutineAsync(request.UserId, request.RoutineTemplateId);
+            var result = await _routinesService.CreateUserRoutineAsync(request.UserId, request.RoutineTemplateId, request.ExerciseTemplateId);
             return Ok(result);
         }
+
 
         [HttpGet("user-routines")]
         public async Task<IActionResult> GetUserRoutines([FromQuery] string userId)
@@ -70,5 +71,6 @@ namespace Web.Controllers
     {
         public string? UserId { get; set; }
         public int RoutineTemplateId { get; set; }
+        public int ExerciseTemplateId { get; set; } // Nuevo campo agregado
     }
 }
