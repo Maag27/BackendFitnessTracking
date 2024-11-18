@@ -17,57 +17,46 @@ namespace Web.Controllers
             _routinesService = routinesService;
         }
 
-        // Obtener todas las rutinas predefinidas
         [HttpGet("template-routines")]
         public async Task<IActionResult> GetTemplateRoutines()
         {
-            try
-            {
-                var routines = await _routinesService.GetRoutineTemplatesAsync();
-                return Ok(routines);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error en GetTemplateRoutines: {ex.Message}");
-                return StatusCode(500, "Error interno al obtener las rutinas predefinidas.");
-            }
+            var routines = await _routinesService.GetRoutineTemplatesAsync();
+            return Ok(routines);
         }
 
-        // Obtener ejercicios de una rutina predefinida específica
         [HttpGet("template-routines/{routineTemplateId}/exercises")]
         public async Task<IActionResult> GetExercisesByRoutineTemplateId(int routineTemplateId)
         {
-            try
-            {
-                var exercises = await _routinesService.GetExercisesByRoutineTemplateIdAsync(routineTemplateId);
-                return Ok(exercises);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error en GetExercisesByRoutineTemplateId: {ex.Message}");
-                return StatusCode(500, "Error interno al obtener los ejercicios de la rutina.");
-            }
+            var exercises = await _routinesService.GetExercisesByRoutineTemplateIdAsync(routineTemplateId);
+            return Ok(exercises);
         }
 
-        // Crear rutina personalizada para el usuario
         [HttpPost("create-user-routine")]
         public async Task<IActionResult> CreateUserRoutine([FromQuery] string userId, [FromQuery] int routineTemplateId)
         {
-            try
-            {
-                if (string.IsNullOrEmpty(userId))
-                {
-                    return BadRequest("El UserId no puede ser nulo o vacío.");
-                }
+            var result = await _routinesService.CreateUserRoutineAsync(userId, routineTemplateId);
+            return Ok(result);
+        }
 
-                var result = await _routinesService.CreateUserRoutineAsync(userId, routineTemplateId);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error en CreateUserRoutine: {ex.Message}");
-                return StatusCode(500, "Error interno al crear la rutina de usuario.");
-            }
+        [HttpGet("user-routines")]
+        public async Task<IActionResult> GetUserRoutines([FromQuery] string userId)
+        {
+            var routines = await _routinesService.GetUserRoutinesAsync(userId);
+            return Ok(routines);
+        }
+
+        [HttpPut("user-routines")]
+        public async Task<IActionResult> UpdateUserRoutine([FromBody] UserRoutine updatedRoutine)
+        {
+            var result = await _routinesService.UpdateUserRoutineAsync(updatedRoutine);
+            return Ok(result);
+        }
+
+        [HttpDelete("user-routines/{userRoutineId}")]
+        public async Task<IActionResult> DeleteUserRoutine(int userRoutineId)
+        {
+            var success = await _routinesService.DeleteUserRoutineAsync(userRoutineId);
+            return success ? NoContent() : NotFound();
         }
     }
 }

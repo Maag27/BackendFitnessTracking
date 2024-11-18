@@ -53,8 +53,8 @@ namespace Infrastructure.Repositories
             try
             {
                 var routineTemplate = await _context.RoutineTemplates
-                    .Include(rt => rt.Exercises!)
-                    .ThenInclude(e => e.ExerciseDetails!)
+                    .Include(rt => rt.Exercises!.AsEnumerable()) // Convertir a IEnumerable para evitar error de nulabilidad
+                    .ThenInclude(e => e.ExerciseDetails!.AsEnumerable())
                     .FirstOrDefaultAsync(rt => rt.RoutineTemplateId == routineTemplateId);
 
                 if (routineTemplate == null)
@@ -86,6 +86,71 @@ namespace Infrastructure.Repositories
             {
                 Console.WriteLine($"Error en CreateUserRoutineAsync: {ex.Message}");
                 throw new Exception("Error al crear la rutina de usuario.");
+            }
+        }
+
+        // Obtener rutinas del usuario por UserId
+        public async Task<List<UserRoutine>> GetUserRoutinesAsync(string userId)
+        {
+            try
+            {
+                return await _context.UserRoutines
+                    .Include(ur => ur.UserExercises!.AsEnumerable()) // Solución: AsEnumerable para tratar nulabilidad
+                        .ThenInclude(ue => ue.UserExerciseDetails!.AsEnumerable())
+                    .Where(ur => ur.UserId == userId)
+                    .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error en GetUserRoutinesAsync: {ex.Message}");
+                throw new Exception("Error al obtener rutinas del usuario.");
+            }
+        }
+
+        // Editar rutina de usuario
+        public async Task<UserRoutine> UpdateUserRoutineAsync(UserRoutine updatedRoutine)
+        {
+            try
+            {
+                var existingRoutine = await _context.UserRoutines
+                    .Include(ur => ur.UserExercises!.AsEnumerable()) // Solución de nulabilidad
+                        .ThenInclude(ue => ue.UserExerciseDetails!.AsEnumerable())
+                    .FirstOrDefaultAsync(ur => ur.UserRoutineId == updatedRoutine.UserRoutineId);
+
+                if (existingRoutine == null)
+                    throw new Exception("Rutina de usuario no encontrada.");
+
+                existingRoutine.UserExercises = updatedRoutine.UserExercises;
+                _context.UserRoutines.Update(existingRoutine);
+                await _context.SaveChangesAsync();
+                return existingRoutine;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error en UpdateUserRoutineAsync: {ex.Message}");
+                throw new Exception("Error al actualizar la rutina de usuario.");
+            }
+        }
+
+        // Eliminar rutina de usuario
+        public async Task<bool> DeleteUserRoutineAsync(int userRoutineId)
+        {
+            try
+            {
+                var userRoutine = await _context.UserRoutines
+                    .FirstOrDefaultAsync(ur => ur.UserRoutineId == userRoutineId);
+
+                if (userRoutine == null)
+                    return false;
+
+                _context.UserRoutines.Remove(userRoutine);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error en DeleteUserRoutineAsync: {ex.Message}");
+                throw new Exception("Error al eliminar la rutina de usuario.");
             }
         }
     }
